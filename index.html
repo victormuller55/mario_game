@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/pipe.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/pipe.png" />
     <title>Super Mario | Mini Game</title>
-</head>
-<body>
+  </head>
+  <body>
     <audio id="marioMusic" loop>
-        <source src="song/mario_song.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
+      <source src="song/mario_song.mp3" type="audio/mp3" />
     </audio>
+    <audio id="deathSound" loop>
+      <source src="song/death.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="jumpSound" loop>
+      <source src="song/jump.mp3" type="audio/mp3" />
+    </audio>
+    <div class="logo-container">
+      <img id="logo" src="images/logo.png" alt="Iniciar Jogo" />
+    </div>
     <div class="game-board">
-        <img src="images/clouds.png" class="clouds">
-        <img src="images/mario.gif" class="mario">
-        <img src="images/pipe.png" class="pipe">
+      <img src="images/montain.png" class="montain" />
+      <img src="images/bush-removebg-preview.png" class="bush" />
+      <img src="images/grass.png" class="grass" />
+      <img src="images/clouds.png" class="clouds" />
+      <img src="images/mario.gif" class="mario" />
+      <img src="images/pipe.png" class="pipe" />
+    </div>
+    <div class="logo-container">
+      <img id="logo" src="images/logo.png"/>
     </div>
     <div class="start-button-container">
-        <img id="startButton" src="images/button.png" onclick="startGame()" alt="Iniciar Jogo">
+      <img
+        id="startButton"
+        src="images/button.png"
+        onclick="startGame()"
+      />
     </div>
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>

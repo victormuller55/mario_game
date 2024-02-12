@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 
+/* ------------------- GAME BOARD ------------------- */
+
 .game-board {
     width: 100%;
-    height: 500px;
-    border-bottom: 15px solid green;
+    height: 100vh; /* Ocupa 100% da altura da viewport */
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -19,22 +20,28 @@
     animation: game-board-animation 20s infinite linear; 
 }
 
+/* ------------------- PIPE ------------------- */
+
 .pipe {
     position: absolute;
-    bottom: 0;
-    width: 80px;
+    bottom: 40px;
+    width: 60px;
+    width: 70px;
     animation: none;
     right: 180px;
+
 }
 
 .game-board.active .pipe {
     animation: pipe-animation 1.5s infinite linear; 
 }
 
+/* ------------------- MARIO ------------------- */
+
 .mario {
-    width: 90px;
+    width: 80px;
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
 }
 
 .game-board.active .mario {
@@ -42,20 +49,57 @@
 }
 
 .game-board.active .mario.jump {
-    animation: jump 500ms ease-out;
+    animation: jump 700ms ease-out;
 }
+
+/* ------------------- CENARIO ------------------- */
 
 .clouds {
     width: 350px;
     position: absolute;
     top: 50px;
     right: 150px;
-    animation: none; /* Adicionado para desativar a animação inicial */
+    animation: none;
 }
 
-.game-board.active .clouds {
-    animation: cloud-animation 20s infinite linear; /* Adicionado para ativar a animação após o clique */
+.bush {
+    position: absolute;
+    bottom: 40px;
+    animation: none;
 }
+
+.grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: url('images/grass.png') repeat-x;
+}
+
+.montain {
+    position: absolute;
+    bottom: 40px;
+    animation: none;
+}
+
+.game-board.active .montain {
+    animation: montain-animation 7s infinite linear;
+} 
+
+.game-board.active .clouds {
+    animation: cloud-animation 20s infinite linear;
+} 
+
+.game-board.active .bush {
+    animation: bush-animation 3s infinite linear;
+}
+
+.game-board.active .grass {
+    animation: grass-animation 1.5s infinite linear;
+}
+
+/* ------------------- MENU ------------------- */
 
 .start-button-container {
     position: absolute;
@@ -65,9 +109,24 @@
     text-align: center;
 }
 
+.logo-container {
+    position: absolute;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+#logo {
+    width: 200px;
+    height: auto;
+}
+  
+
 #startButton {
     width: 200px;
 }
+
+/* ------------------- ANIMATION ------------------- */
 
 @keyframes pipe-animation {
     from {
@@ -85,17 +144,46 @@
     }
 }
 
+@keyframes bush-animation {
+    from {
+        right: -350px;
+    } to {
+        right: 100%;
+    }
+}
+
+@keyframes montain-animation {
+    from {
+        right: -450px;
+    } to {
+        right: 100%;
+    }
+}
+
+
+@keyframes grass-animation {
+    from {
+        right: 0px;
+    } to {
+        right: 100%;
+    }
+}
+
 @keyframes jump {
     0% {
-        bottom: 0;
+        bottom: 40px;
     }
 
     40% {
-        bottom: 180px;
+        bottom: 160px;
     }
 
     50% {
-       bottom: 1
+       bottom: 160px;
     }
+
+    100% {
+        bottom: 40px;
+     }
 
 }
