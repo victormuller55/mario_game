@@ -4,6 +4,29 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: PixelFont;
+    src: url('/fonts/pixel_font.TTF') format('truetype');
+  }
+
+  .score {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    font-family: PixelFont, sans-serif;
+    font-size: 30px;
+    color: white;
+  }
+
+  .lastScore {
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    font-family: PixelFont, sans-serif;
+    font-size: 30px;
+    color: white;
+  }
+
 /* ------------------- GAME BOARD ------------------- */
 
 .game-board {

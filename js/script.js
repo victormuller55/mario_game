@@ -11,9 +11,12 @@ const deathSound = document.getElementById("deathSound");
 const jumpSound = document.getElementById("jumpSound");
 
 const gameBoard = document.querySelector(".game-board");
+const scoreContainer = document.getElementById("scoreContainer"); 
+const lastScoreContainer = document.getElementById("lastScoreContainer"); 
 
 let gameRunning = false;
-
+let score = 0; 
+let hasScored = false;
 
 const jump = () => {
   if (gameRunning) {
@@ -23,7 +26,17 @@ const jump = () => {
     mario.classList.add("jump");
     setTimeout(() => mario.classList.remove("jump"), 500);
     setTimeout(() => jumpSound.pause(), 800);
+
+    if (!hasScored) {
+      score++;
+      updateScore();
+      hasScored = true; 
+    }
   }
+};
+
+const updateScore = () => {
+  scoreContainer.textContent = "Jogo Atual: " + score;
 };
 
 const resetGame = () => {
@@ -37,6 +50,9 @@ const resetGame = () => {
 
   gameRunning = false;
   startButton.style.display = "block";
+  score = 0;
+  hasScored = false; // Resetar para a próxima rodada
+  updateScore();
 
   mario.src = "./images/mario.gif";
   mario.style.width = "90px";
@@ -76,6 +92,7 @@ const startGame = () => {
     gameBoard.classList.add("active");
     bush.classList.add("active");
 
+
     const loop = setInterval(() => {
       const pipePositionLeft = pipe.offsetLeft;
       const positionBushLeft = bush.offsetLeft;
@@ -106,14 +123,19 @@ const startGame = () => {
         montain.style.animation = "none";
         montain.style.left = positionMontainLeft + "px";
 
+        lastScoreContainer.textContent = "Ultimo Jogo: " + score;
+
         clearInterval(loop);
         endGame();
         setTimeout(resetGame, 4000);
+      } else {
+        score++;
+        updateScore();
       }
     }, 10);
   }
 };
 
-document.addEventListener("keydown", jump);
 
+document.addEventListener("keydown", jump);
 startButton.addEventListener("click", () => startGame());
