@@ -13,7 +13,7 @@ This Super Mario Mini Game is a web-based game developed using HTML, CSS, and Ja
 - HTML: Used for creating the structure of the game.
 - CSS: Utilized for styling and layout design, including character and level design.
 - JavaScript: Implemented for game logic, including player movement, collision detection, and scoring.
-- 
+
 ## How to Play:
 
 1. Clone the Repository:
