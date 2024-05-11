@@ -23,7 +23,7 @@ git clone https://github.com/victormuller55/web-super-mario-mini-game.git
 ```
 
 2. Open the Game: Navigate to the project folder and open the index.html file in your preferred web browser.
-3. Start the Game: Press Start and Have Fun.
+3. Start the Game: Press start and have fun.
 
 ## Game Controls:
 
